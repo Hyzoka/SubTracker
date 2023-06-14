@@ -1,4 +1,4 @@
-package com.example.subtracker.login.screen
+package com.example.subtracker.screens.login.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -15,7 +15,11 @@ import androidx.compose.ui.unit.dp
 import com.example.subtracker.R
 
 @Composable
-fun ConnectScreen() {
+fun ConnectScreen(
+    name: String,
+    onLoginClicked: () -> Unit,
+    onSigninClicked: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -35,7 +39,7 @@ fun ConnectScreen() {
             modifier = Modifier.padding(vertical = 32.dp)
         )
         Button(
-            onClick = { /* Gérer l'événement de clic */ },
+            onClick = { onLoginClicked() },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
@@ -43,7 +47,7 @@ fun ConnectScreen() {
             Text(text = "Se connecter")
         }
         Button(
-            onClick = { /* Gérer l'événement de clic */ },
+            onClick = { onSigninClicked() },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
@@ -56,6 +60,6 @@ fun ConnectScreen() {
 
 @Preview
 @Composable
-fun ConnectScreenPreview(){
-    ConnectScreen()
+fun ConnectScreenPreview() {
+    ConnectScreen("", onLoginClicked = {}, onSigninClicked = {})
 }

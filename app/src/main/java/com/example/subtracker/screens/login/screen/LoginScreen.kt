@@ -1,6 +1,5 @@
-package com.example.subtracker.login.screen
+package com.example.subtracker.screens.login.screen
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme

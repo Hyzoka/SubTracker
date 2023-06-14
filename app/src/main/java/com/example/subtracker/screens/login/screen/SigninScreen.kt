@@ -1,4 +1,4 @@
-package com.example.subtracker.login.screen
+package com.example.subtracker.screens.login.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.example.subtracker.R
 
 @Composable
-fun SignupScreen() {
+fun SignupScreen(onSingUpClicked : () -> Unit) {
     var name by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -91,7 +91,7 @@ fun SignupScreen() {
 
         // Signup button
         Button(
-            onClick = { /* Handle signup button click */ },
+            onClick = { onSingUpClicked() },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 16.dp)
@@ -105,5 +105,5 @@ fun SignupScreen() {
 @Preview
 @Composable
 fun ComposablePreview() {
-    SignupScreen()
+    SignupScreen(onSingUpClicked = {})
 }

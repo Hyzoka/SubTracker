@@ -1,4 +1,4 @@
-package com.example.subtracker.login
+package com.example.subtracker.screens.login
 
 import com.example.subtracker.BaseViewModel
 
