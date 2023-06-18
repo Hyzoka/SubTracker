@@ -1,5 +1,6 @@
-package com.example.subtracker.screens.login.screen
+package com.example.ui.screens.login
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
@@ -15,14 +16,39 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.subtracker.R
+import com.example.ui.viewmodel.SubscriptionViewModel
 
 @Composable
-fun SignupScreen(onSingUpClicked : () -> Unit) {
+fun SignupScreen(
+    signupViewModel: SubscriptionViewModel = viewModel(),
+    onSignupSuccess: () -> Unit
+) {
     var name by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var confirmPassword by remember { mutableStateOf("") }
+
+    val isLoading by signupViewModel.isLoading.collectAsState()
+    val errorMessage by signupViewModel.error.collectAsState()
+    val success by signupViewModel.success.collectAsState()
+
+    if (isLoading) {
+        // Afficher un indicateur de chargement
+    } else {
+        // Afficher le formulaire de création de compte
+    }
+
+    if (errorMessage != null) {
+        Log.i("ERROR_MESSAGE", "$errorMessage")
+    }
+
+    if (success) {
+        onSignupSuccess.invoke()
+        Log.i("SUCCES_MESSAGE", "DOne")
+    }
+
 
     Column(
         modifier = Modifier
@@ -91,7 +117,10 @@ fun SignupScreen(onSingUpClicked : () -> Unit) {
 
         // Signup button
         Button(
-            onClick = { onSingUpClicked() },
+            onClick = {
+                Log.i("VAUES_LOGIN","DATA + $email + $password")
+                signupViewModel.register(email, password)
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 16.dp)
@@ -105,5 +134,5 @@ fun SignupScreen(onSingUpClicked : () -> Unit) {
 @Preview
 @Composable
 fun ComposablePreview() {
-    SignupScreen(onSingUpClicked = {})
+    //SignupScreen()
 }

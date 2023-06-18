@@ -1,4 +1,4 @@
-package com.example.subtracker.graph
+package com.example.graph
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
@@ -6,9 +6,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.example.subtracker.BottomBarScreen
-import com.example.subtracker.screens.home.ScreenContent
-import com.example.subtracker.screens.login.screen.ConnectScreen
+import com.example.BottomBarScreen
+import com.example.ui.screens.home.ScreenContent
 
 @Composable
 fun HomeNavGraph(navController: NavHostController) {
@@ -47,8 +46,7 @@ fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
         startDestination = DetailsScreen.Information.route
     ) {
         composable(route = DetailsScreen.Information.route) {
-            ConnectScreen(name = DetailsScreen.Information.route,
-                { navController.navigate(DetailsScreen.Overview.route) }) {
+            ScreenContent(name = DetailsScreen.Information.route) {
                 navController.navigate(DetailsScreen.Overview.route)
             }
         }

@@ -1,4 +1,4 @@
-package com.example.subtracker.screens.login.screen
+package com.example.subtracker.ui.screens.login.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*

@@ -1,13 +1,15 @@
-package com.example.subtracker.graph
+package com.example.graph
 
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.example.subtracker.screens.home.ScreenContent
-import com.example.subtracker.screens.login.screen.ConnectScreen
-import com.example.subtracker.screens.login.screen.LoginScreen
-import com.example.subtracker.screens.login.screen.SignupScreen
+import com.example.subtracker.ui.screens.login.screen.ConnectScreen
+import com.example.subtracker.ui.screens.login.screen.LoginScreen
+import com.example.ui.screens.login.SignupScreen
+import com.example.ui.viewmodel.SubscriptionViewModel
+import com.google.firebase.auth.FirebaseAuth
 
 fun NavGraphBuilder.authNavGraph(navController: NavHostController) {
     navigation(
@@ -30,7 +32,8 @@ fun NavGraphBuilder.authNavGraph(navController: NavHostController) {
 
         }
         composable(route = AuthScreen.SignUp.route) {
-            SignupScreen(onSingUpClicked = { navController.navigate(Graph.HOME) })
+            SignupScreen(signupViewModel = SubscriptionViewModel(auth = FirebaseAuth.getInstance()),
+                onSignupSuccess = { navController.navigate(Graph.HOME) })
         }
     }
 }

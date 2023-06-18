@@ -1,4 +1,4 @@
-package com.example.subtracker.screens.home
+package com.example.ui.screens.home
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.RowScope
@@ -11,8 +11,8 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.subtracker.BottomBarScreen
-import com.example.subtracker.graph.HomeNavGraph
+import com.example.BottomBarScreen
+import com.example.graph.HomeNavGraph
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable

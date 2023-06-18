@@ -1,4 +1,4 @@
-package com.example.subtracker.screens.home
+package com.example.ui.screens.home
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box

@@ -1,10 +1,14 @@
-package com.example.subtracker.ui.theme
+package com.example.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import com.example.subtracker.ui.theme.Purple200
+import com.example.subtracker.ui.theme.Purple500
+import com.example.subtracker.ui.theme.Purple700
+import com.example.subtracker.ui.theme.Teal200
 
 private val DarkColorPalette = darkColors(
         primary = Purple200,

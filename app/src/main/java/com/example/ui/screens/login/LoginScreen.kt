@@ -1,4 +1,4 @@
-package com.example.subtracker.screens.login.screen
+package com.example.subtracker.ui.screens.login.screen
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
